@@ -61,6 +61,11 @@ export default async function ContractsPage() {
                       {statusLabel[c.status]}
                     </span>
                   </td>
+                  <td className="px-6 py-3 text-center">
+                    <a href={`/admin/contracts/${c._id.toString()}`} className="text-blue-600 hover:underline text-xs">
+                      詳細・PDF
+                    </a>
+                  </td>
                 </tr>
               ))}
               {contracts.length === 0 && (

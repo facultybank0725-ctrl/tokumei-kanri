@@ -2,6 +2,7 @@ import { connectDB } from '@/lib/mongodb'
 import { Distribution } from '@/models/Distribution'
 import { Investor } from '@/models/Investor'
 import DistributionForm from './DistributionForm'
+import BulkCalculateForm from './BulkCalculateForm'
 
 export default async function DistributionsPage() {
   await connectDB()
@@ -17,7 +18,8 @@ export default async function DistributionsPage() {
       <h1 className="text-2xl font-bold text-gray-800 mb-6">分配金管理</h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-1">
+        <div className="lg:col-span-1 space-y-5">
+          <BulkCalculateForm investorCount={investors.length} />
           <DistributionForm investors={investors.map((i) => ({ id: i._id.toString(), name: i.name }))} />
         </div>
 

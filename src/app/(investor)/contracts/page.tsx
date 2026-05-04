@@ -58,6 +58,18 @@ export default async function InvestorContracts() {
             {c.notes && (
               <p className="mt-4 text-xs text-gray-500 bg-gray-50 rounded p-3">{c.notes}</p>
             )}
+            {c.fileUrl && (
+              <div className="mt-4">
+                <a
+                  href={c.fileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-blue-600 hover:underline text-sm"
+                >
+                  <span>📄</span> 契約書PDFを開く
+                </a>
+              </div>
+            )}
           </div>
         ))}
         {contracts.length === 0 && (
